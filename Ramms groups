@@ -12,8 +12,6 @@
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <!-- Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -22,11 +20,6 @@
       background-color: #050b17;
       color: #f1f5f9;
       overflow-x: hidden;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #ff4b4b 0%, #ff8b3d 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     .badge-pill {
       background: rgba(255, 140, 0, 0.12);
@@ -52,9 +45,9 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState, useEffect } = React;
+    const { useState } = React;
 
-    // Contact form sheet web app URL (Step 1 me mila script URL yahan daalein)
+    // Contact form sheet web app URL (Deploy karke mila hua link yahan daalein)
     const SHEET_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
     function App() {
@@ -63,7 +56,7 @@
       const [returnRate, setReturnRate] = useState(12);
       const [timePeriod, setTimePeriod] = useState(10);
 
-      // Calculation
+      // Calculations
       const i = (returnRate / 100) / 12;
       const n = timePeriod * 12;
       const totalInvested = monthlyInv * n;
@@ -85,11 +78,10 @@
         setFormStatus('sending');
         try {
           if (SHEET_SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
-            // Demo fallback if script URL not yet pasted
             setTimeout(() => {
               setFormStatus('success');
               setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-            }, 1000);
+            }, 800);
             return;
           }
           await fetch(SHEET_SCRIPT_URL, {
@@ -134,33 +126,39 @@
             botReply = "You receive daily live mentor sessions, real-client project assignments, and detailed 1-on-1 industry reviews with verified certificates.";
           }
           setChatMessages([...newMsgList, { sender: 'bot', text: botReply }]);
-        }, 600);
+        }, 500);
       };
 
       return (
         <div className="min-h-screen flex flex-col">
           {/* Header */}
-          <header className="sticky top-0 z-50 bg-[#050b17]/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
+          <header className="sticky top-0 z-50 bg-[#050b17]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-blue-500/20">
-                RG
+              <img 
+                src="logo.png" 
+                alt="RAMMS GROUPS Logo" 
+                className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(37,99,235,0.5)]"
+                onError={(e) => { e.target.onerror = null; e.target.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&q=80"; }}
+              />
+              <div>
+                <span className="font-extrabold text-lg sm:text-xl tracking-wider text-white block leading-tight">RAMMS GROUPS</span>
+                <span className="text-[9px] sm:text-[10px] text-blue-400 tracking-wide block font-medium">Reliable Asset Management Multiple Services Groups</span>
               </div>
-              <span className="font-bold text-xl tracking-wider text-white">RAMMS GROUPS</span>
             </div>
-            <nav className="hidden md:flex items-center gap-8 text-sm text-gray-300 font-medium">
-              <a href="#about" className="hover:text-white transition">About Us</a>
-              <a href="#bundle" className="hover:text-white transition">Bundle Course</a>
-              <a href="#invest" className="hover:text-white transition">Investments</a>
-              <a href="#services" className="hover:text-white transition">Digital Services</a>
-              <a href="#affiliate" className="hover:text-white transition">Affiliate Program</a>
-              <a href="#contact" className="hover:text-white transition">Contact Us</a>
+            <nav className="hidden lg:flex items-center gap-7 text-xs text-gray-300 font-medium">
+              <a href="#about" className="hover:text-blue-400 transition">About Us</a>
+              <a href="#bundle" className="hover:text-blue-400 transition">Bundle Course</a>
+              <a href="#invest" className="hover:text-blue-400 transition">Investments</a>
+              <a href="#services" className="hover:text-blue-400 transition">Digital Services</a>
+              <a href="#affiliate" className="hover:text-blue-400 transition">Affiliate Program</a>
+              <a href="#contact" className="hover:text-blue-400 transition">Contact Us</a>
             </nav>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <a 
                 href="https://forms.gle/t31UxxjykTMxht5D6" 
                 target="_blank" 
                 rel="noreferrer"
-                className="hidden sm:inline-block px-4 py-2 text-xs font-semibold rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition"
+                className="hidden sm:inline-block px-3 py-2 text-xs font-semibold rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition"
               >
                 Apply for Jobs
               </a>
@@ -177,7 +175,7 @@
 
           <main className="flex-1">
             {/* 1. Mega Bundle Section */}
-            <section id="bundle" className="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+            <section id="bundle" className="py-14 px-4 sm:px-6 max-w-6xl mx-auto">
               <div className="glass-card rounded-2xl p-6 sm:p-10 border border-blue-900/40 relative overflow-hidden">
                 <div className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/30 uppercase mb-4">
                   ULTIMATE MEGA BUNDLE
@@ -185,41 +183,41 @@
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
                   Master All 9 Digital Skills
                 </h1>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 max-w-4xl">
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-8 max-w-4xl">
                   Become a Digital Pro. Complete mastery of video editing, logo design, banner creation, web development, mobile apps, photo editing, social media design, content writing, and presentation design. Live sessions with mentors. Recorded videos for lifetime learning. Daily tasks to build real projects. Official RAMMS GROUPS certificate upon completion.
                 </p>
 
-                <div className="space-y-4 mb-10 text-gray-200 text-sm">
+                <div className="space-y-4 mb-10 text-gray-200 text-xs sm:text-sm">
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-400 text-lg">👥</span>
+                    <span className="text-blue-400 text-base">👥</span>
                     <div>
                       <strong className="text-white block font-semibold">Live Sessions with Expert Mentors</strong>
                       <span className="text-gray-400 text-xs">Join real-time classes with 4–7+ years industry experts. Ask questions directly. Get personalized guidance.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-400 text-lg">📹</span>
+                    <span className="text-blue-400 text-base">📹</span>
                     <div>
                       <strong className="text-white block font-semibold">Recorded Video Library + Lifetime Access</strong>
                       <span className="text-gray-400 text-xs">Watch anytime, anywhere. Every session recorded. Revisit concepts whenever needed. Learn at your pace.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-400 text-lg">📋</span>
+                    <span className="text-blue-400 text-base">📋</span>
                     <div>
                       <strong className="text-white block font-semibold">Daily Tasks & Real Project Work</strong>
                       <span className="text-gray-400 text-xs">Build your portfolio with real client projects. Complete daily assignments. Track progress with detailed feedback.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-400 text-lg">🏅</span>
+                    <span className="text-blue-400 text-base">🏅</span>
                     <div>
                       <strong className="text-white block font-semibold">Official RAMMS GROUPS Certificate</strong>
                       <span className="text-gray-400 text-xs">Earn your digital skills certificate. Verified credentials employers recognize. Boost your freelancing profile instantly.</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-400 text-lg">✨</span>
+                    <span className="text-blue-400 text-base">✨</span>
                     <div>
                       <strong className="text-white block font-semibold">Beginner-Friendly → Advanced Mastery</strong>
                       <span className="text-gray-400 text-xs">Zero experience needed. Progressive learning from foundations to pro-level skills in all 9 disciplines.</span>
@@ -248,7 +246,7 @@
                     href="https://forms.gle/eFyUyNoq3sJGnngg9" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg text-sm hover:bg-gray-100 transition shadow-lg"
+                    className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg text-xs sm:text-sm hover:bg-gray-100 transition shadow-lg"
                   >
                     Enroll Now & Transform Your Skills
                   </a>
@@ -257,18 +255,21 @@
               </div>
             </section>
 
-            {/* 2. About RAMMS GROUPS & Zero-Investment */}
+            {/* 2. About RAMMS GROUPS */}
             <section id="about" className="py-14 px-4 sm:px-6 max-w-6xl mx-auto text-center">
               <span className="badge-pill inline-block px-4 py-1 rounded-full text-xs font-bold uppercase mb-3">
                 ABOUT RAMMS
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6">About RAMMS GROUPS</h2>
-              <p className="text-gray-300 max-w-4xl mx-auto text-sm sm:text-base leading-relaxed mb-10">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-2">About RAMMS GROUPS</h2>
+              <div className="text-xs text-blue-400 font-semibold mb-6 uppercase tracking-wider">
+                Reliable Asset Management Multiple Services Groups
+              </div>
+              <p className="text-gray-300 max-w-4xl mx-auto text-xs sm:text-sm leading-relaxed mb-8">
                 Headquartered in India and serving clients nationwide, RAMMS GROUPS is a premier multi-service ecosystem designed for the modern digital economy. We bridge the gap between financial growth and professional skill development by offering institutional-grade Investment Research, premium Freelancing solutions, and practical digital courses. Driven by our vision to foster financial independence across India, we also empower aspiring entrepreneurs through our 100% Free Advanced Affiliate Network. At RAMMS GROUPS, we don't just teach—we build platforms for you to Learn, Earn, and Invest successfully.
               </p>
               <a 
                 href="#services" 
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg text-sm transition mb-16 shadow-lg shadow-blue-600/30"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg text-xs transition mb-16 shadow-lg shadow-blue-600/30"
               >
                 Discover Our Services
               </a>
@@ -281,24 +282,24 @@
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
                   Join India’s Premier Zero-Investment Affiliate Ecosystem
                 </h3>
-                <p className="text-gray-300 max-w-3xl mx-auto text-sm leading-relaxed mb-8">
-                  Unlock a powerful stream of income with the RAMMS GROUPS Affiliate Program. Designed for aspiring entrepreneurs, students, and professionals across India, our ecosystem allows you to promote premium digital courses, freelancing solutions, and high-demand financial services with absolute transparency. With zero upfront fees and zero investment, you get access to high-value commission payouts, real-time wallet tracking, and regular corporate rewards—including exclusive travel incentives. Start your journey today and build a scalable wealth portfolio from the comfort of your home.
+                <p className="text-gray-300 max-w-3xl mx-auto text-xs sm:text-sm leading-relaxed mb-8">
+                  Unlock a powerful stream of income with the RAMMS GROUPS Affiliate Program. Designed for aspiring entrepreneurs, students, and professionals across India, our ecosystem allows you to promote premium digital courses, freelancing solutions, and high-demand financial services with absolute transparency. With zero upfront fees and zero investment, you get access to high-value commission payouts, real-time wallet tracking, and regular corporate rewards—including exclusive travel incentives.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-8">
                   <div className="glass-card p-6 rounded-xl">
                     <div className="text-2xl mb-2 text-orange-400">🛡️</div>
-                    <h4 className="font-bold text-white text-base mb-1">Zero Upfront Fees</h4>
+                    <h4 className="font-bold text-white text-sm mb-1">Zero Upfront Fees</h4>
                     <p className="text-xs text-gray-400">Start immediately with absolutely zero investment or hidden joining charges.</p>
                   </div>
                   <div className="glass-card p-6 rounded-xl">
                     <div className="text-2xl mb-2 text-blue-400">💳</div>
-                    <h4 className="font-bold text-white text-base mb-1">High Commission Payouts</h4>
+                    <h4 className="font-bold text-white text-sm mb-1">High Commission Payouts</h4>
                     <p className="text-xs text-gray-400">Earn maximum payouts on every referral with completely transparent tracking.</p>
                   </div>
                   <div className="glass-card p-6 rounded-xl">
                     <div className="text-2xl mb-2 text-cyan-400">✈️</div>
-                    <h4 className="font-bold text-white text-base mb-1">Travel & Reward Incentives</h4>
+                    <h4 className="font-bold text-white text-sm mb-1">Travel & Reward Incentives</h4>
                     <p className="text-xs text-gray-400">Unlock exclusive bonuses, domestic trip packages, and premium tech rewards.</p>
                   </div>
                 </div>
@@ -307,7 +308,7 @@
                   href="https://forms.gle/eFyUyNoq3sJGnngg9" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg text-sm transition shadow-lg shadow-blue-600/30"
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-lg text-xs transition shadow-lg shadow-blue-600/30"
                 >
                   Join the Affiliate Network
                 </a>
@@ -603,12 +604,12 @@
                       <span className="text-blue-400 text-xl">🎥</span>
                       <span className="text-[10px] bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded font-bold">Popular</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Video Editing</h5>
+                    <h5 className="font-bold text-white text-sm">Video Editing</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Professional video editing for YouTube, reels, ads, and corporate content.</p>
                   </div>
                   <div>
-                    <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-lg font-bold text-white">₹149</span>
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-base font-bold text-white">₹149</span>
                       <span className="text-xs line-through text-gray-500">₹199</span>
                     </div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">Per content</div>
@@ -623,11 +624,11 @@
                       <span className="text-blue-400 text-xl">✒️</span>
                       <span className="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">Hot</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Logo Design</h5>
+                    <h5 className="font-bold text-white text-sm">Logo Design</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Unique, memorable logos that define your brand identity.</p>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white mb-1">₹99</div>
+                    <div className="text-base font-bold text-white mb-1">₹99</div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">One-time</div>
                     <a href="#contact" className="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-medium transition">Get Service</a>
                   </div>
@@ -640,11 +641,11 @@
                       <span className="text-blue-400 text-xl">🖼️</span>
                       <span className="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">Pro</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Banner Design</h5>
+                    <h5 className="font-bold text-white text-sm">Banner Design</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Eye-catching banners for social media and marketing campaigns.</p>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white mb-1">₹299</div>
+                    <div className="text-base font-bold text-white mb-1">₹299</div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">Per banner</div>
                     <a href="#contact" className="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-medium transition">Get Service</a>
                   </div>
@@ -657,12 +658,12 @@
                       <span className="text-blue-400 text-xl">💻</span>
                       <span className="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded font-bold">Best Value</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Website Development</h5>
+                    <h5 className="font-bold text-white text-sm">Website Development</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Modern, responsive websites with latest technologies.</p>
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-lg font-bold text-white">₹40k</span>
+                      <span className="text-base font-bold text-white">₹40k</span>
                       <span className="text-xs line-through text-gray-500">₹60k</span>
                     </div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">+ Modification charges</div>
@@ -677,12 +678,12 @@
                       <span className="text-blue-400 text-xl">📱</span>
                       <span className="text-[10px] bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded font-bold">Exclusive</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Mobile App Development</h5>
+                    <h5 className="font-bold text-white text-sm">Mobile App Development</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Cross-platform apps for Android and iOS.</p>
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-lg font-bold text-white">₹70k</span>
+                      <span className="text-base font-bold text-white">₹70k</span>
                       <span className="text-xs line-through text-gray-500">₹80k</span>
                     </div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">+ Modification charges</div>
@@ -697,11 +698,11 @@
                       <span className="text-blue-400 text-xl">📸</span>
                       <span className="text-[10px] bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-bold">Quick</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Photo Editing</h5>
+                    <h5 className="font-bold text-white text-sm">Photo Editing</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Professional retouching and enhancement services.</p>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white mb-1">₹49</div>
+                    <div className="text-base font-bold text-white mb-1">₹49</div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">Per photo</div>
                     <a href="#contact" className="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-medium transition">Get Service</a>
                   </div>
@@ -714,28 +715,28 @@
                       <span className="text-blue-400 text-xl">📢</span>
                       <span className="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-bold">Monthly</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Social Media Design</h5>
+                    <h5 className="font-bold text-white text-sm">Social Media Design</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">Engaging posts, stories, and content for your audience.</p>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white mb-1">₹4,999</div>
+                    <div className="text-base font-bold text-white mb-1">₹4,999</div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">Per month</div>
                     <a href="#contact" className="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-medium transition">Get Service</a>
                   </div>
                 </div>
 
-                {/* Content Writing & Presentation */}
+                {/* Content Writing */}
                 <div className="glass-card p-6 rounded-xl flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-blue-400 text-xl">✍️</span>
                       <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Premium</span>
                     </div>
-                    <h5 className="font-bold text-white text-base">Content Writing</h5>
+                    <h5 className="font-bold text-white text-sm">Content Writing</h5>
                     <p className="text-xs text-gray-400 mt-2 mb-4">SEO-optimized blogs, articles, and copy.</p>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white mb-1">₹20–99</div>
+                    <div className="text-base font-bold text-white mb-1">₹20–99</div>
                     <div className="text-[11px] text-red-400 mb-3 font-medium">Per page</div>
                     <a href="#contact" className="block text-center py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-medium transition">Get Service</a>
                   </div>
@@ -803,7 +804,7 @@
                 </div>
               </div>
 
-              {/* Milestone & Steps */}
+              {/* Milestone Box */}
               <div className="glass-card rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto mb-14 border border-blue-900/50">
                 <span className="bg-orange-500 text-white font-bold text-[11px] px-3 py-1 rounded-full uppercase">
                   LIVE REWARDS
@@ -833,7 +834,7 @@
                   href="https://forms.gle/eFyUyNoq3sJGnngg9" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="inline-block w-full sm:w-auto px-10 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg text-sm transition shadow-lg shadow-orange-500/20"
+                  className="inline-block w-full sm:w-auto px-10 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg text-xs sm:text-sm transition shadow-lg shadow-orange-500/20"
                 >
                   Participate Now & Win Trip
                 </a>
@@ -842,7 +843,7 @@
                 </div>
               </div>
 
-              {/* How to Participate */}
+              {/* Steps */}
               <div className="text-center mb-10">
                 <h4 className="text-2xl font-extrabold text-emerald-400">How to Participate?</h4>
                 <p className="text-xs text-gray-300 mt-1">Simple, highly-rewarding steps to join the campaign and begin earning towards your dream beach vacation.</p>
@@ -850,30 +851,30 @@
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="glass-card p-6 rounded-xl">
-                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-sm mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xs mb-4">
                     1
                   </div>
-                  <h5 className="font-bold text-white text-base mb-2">Register – 100% Free!</h5>
+                  <h5 className="font-bold text-white text-sm mb-2">Register – 100% Free!</h5>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Sign up for the affiliate marketing program with zero upfront investment. Get your unique code instantly. No hidden charges!
                   </p>
                 </div>
 
                 <div className="glass-card p-6 rounded-xl">
-                  <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-sm mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs mb-4">
                     2
                   </div>
-                  <h5 className="font-bold text-white text-base mb-2">Promote & Track Sales</h5>
+                  <h5 className="font-bold text-white text-sm mb-2">Promote & Track Sales</h5>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Utilize our marketing blueprints, share across platforms, and monitor referral sales in real-time. Watch your payouts scale.
                   </p>
                 </div>
 
                 <div className="glass-card p-6 rounded-xl">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mb-4">
                     3
                   </div>
-                  <h5 className="font-bold text-white text-base mb-2">Win & Celebrate!</h5>
+                  <h5 className="font-bold text-white text-sm mb-2">Win & Celebrate!</h5>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Hit the ₹2.5L milestone and claim your fully-paid Goa trip! Relax and celebrate your hard-earned success!
                   </p>
@@ -881,7 +882,7 @@
               </div>
             </section>
 
-            {/* 7. Meet The Leaders */}
+            {/* 7. Meet The Leaders (Updated with your photos) */}
             <section className="py-14 px-4 sm:px-6 max-w-6xl mx-auto text-center">
               <span className="badge-pill inline-block px-4 py-1 rounded-full text-xs font-bold uppercase mb-3">
                 MEET THE LEADERS
@@ -892,13 +893,15 @@
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                {/* Rupesh Kumar Sinha */}
+                {/* 1. Founder: Rupesh Kumar Sinha */}
                 <div className="glass-card p-6 rounded-2xl flex flex-col items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
-                    alt="Rupesh Kumar Sinha" 
-                    className="w-24 h-24 rounded-2xl object-cover mb-4 border border-blue-500/30"
-                  />
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden mb-4 border-2 border-orange-500/40 shadow-lg shadow-orange-500/20 bg-[#0d1a33]">
+                    <img 
+                      src="founder.png" 
+                      alt="Rupesh Kumar Sinha - Founder" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   <h5 className="font-bold text-white text-base">Rupesh Kumar Sinha</h5>
                   <div className="text-xs font-bold text-orange-400 tracking-wider uppercase mt-0.5 mb-3">FOUNDER</div>
                   <p className="text-xs text-gray-400 leading-relaxed mb-6 flex-1">
@@ -909,13 +912,15 @@
                   </a>
                 </div>
 
-                {/* Manas Jha */}
+                {/* 2. CEO: Manas Jha */}
                 <div className="glass-card p-6 rounded-2xl flex flex-col items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" 
-                    alt="Manas Jha" 
-                    className="w-24 h-24 rounded-2xl object-cover mb-4 border border-blue-500/30"
-                  />
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden mb-4 border-2 border-blue-500/40 shadow-lg shadow-blue-500/20 bg-[#0d1a33]">
+                    <img 
+                      src="ceo.png" 
+                      alt="Manas Jha - CEO" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   <h5 className="font-bold text-white text-base">Manas Jha</h5>
                   <div className="text-xs font-bold text-blue-400 tracking-wider uppercase mt-0.5 mb-3">CEO</div>
                   <p className="text-xs text-gray-400 leading-relaxed mb-6 flex-1">
@@ -926,13 +931,15 @@
                   </a>
                 </div>
 
-                {/* Mayank Kumar */}
+                {/* 3. Co-Founder: Mayank Kumar */}
                 <div className="glass-card p-6 rounded-2xl flex flex-col items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80" 
-                    alt="Mayank Kumar" 
-                    className="w-24 h-24 rounded-2xl object-cover mb-4 border border-blue-500/30"
-                  />
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden mb-4 border-2 border-blue-500/40 shadow-lg shadow-blue-500/20 bg-[#0d1a33]">
+                    <img 
+                      src="cofounder.png" 
+                      alt="Mayank Kumar - Co-Founder" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   <h5 className="font-bold text-white text-base">Mayank Kumar</h5>
                   <div className="text-xs font-bold text-blue-400 tracking-wider uppercase mt-0.5 mb-3">CO-FOUNDER</div>
                   <p className="text-xs text-gray-400 leading-relaxed mb-6 flex-1">
@@ -943,13 +950,15 @@
                   </a>
                 </div>
 
-                {/* Sani Kumar */}
+                {/* 4. Co-CEO: Sani Kumar */}
                 <div className="glass-card p-6 rounded-2xl flex flex-col items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
-                    alt="Sani Kumar" 
-                    className="w-24 h-24 rounded-2xl object-cover mb-4 border border-blue-500/30"
-                  />
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden mb-4 border-2 border-orange-500/40 shadow-lg shadow-orange-500/20 bg-[#0d1a33]">
+                    <img 
+                      src="co-ceo.png" 
+                      alt="Sani Kumar - Co-CEO" 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                   <h5 className="font-bold text-white text-base">Sani Kumar</h5>
                   <div className="text-xs font-bold text-orange-400 tracking-wider uppercase mt-0.5 mb-3">CO-CEO</div>
                   <p className="text-xs text-gray-400 leading-relaxed mb-6 flex-1">
@@ -962,7 +971,7 @@
               </div>
             </section>
 
-            {/* 8. Contact RAMMS GROUPS (Direct Google Sheet Connected) */}
+            {/* 8. Contact Us Form */}
             <section id="contact" className="py-14 px-4 sm:px-6 max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <span className="badge-pill inline-block px-4 py-1 rounded-full text-xs font-bold uppercase mb-2">
@@ -972,7 +981,6 @@
               </div>
 
               <div className="glass-card rounded-2xl overflow-hidden border border-blue-900/50 shadow-2xl">
-                {/* Header Information Bar */}
                 <div className="bg-[#0b162c] p-6 sm:p-8 border-b border-white/10">
                   <span className="text-[10px] font-bold tracking-widest text-blue-400 uppercase">START HERE</span>
                   <h4 className="text-2xl font-bold text-white mt-1">Contact RAMMS GROUPS</h4>
@@ -1003,7 +1011,6 @@
                   </div>
                 </div>
 
-                {/* Form Fields */}
                 <form onSubmit={handleContactSubmit} className="p-6 sm:p-8 space-y-4 bg-[#070e1d]">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -1087,22 +1094,22 @@
           <footer className="bg-[#030712] border-t border-white/10 pt-12 pb-8 px-6">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-sm">
-                    RG
+                <div className="flex items-center gap-3 mb-3">
+                  <img 
+                    src="logo.png" 
+                    alt="RAMMS GROUPS" 
+                    className="w-8 h-8 object-contain"
+                  />
+                  <div>
+                    <span className="font-extrabold text-lg text-white block leading-tight">RAMMS GROUPS</span>
+                    <span className="text-[9px] text-blue-400 font-medium">Reliable Asset Management Multiple Services Groups</span>
                   </div>
-                  <span className="font-bold text-lg text-white">RAMMS GROUPS</span>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed max-w-md mb-4">
                   India’s premier pan-India multi-service ecosystem. We empower growth through professional Freelancing solutions, institutional-grade Investment Research, and a 100% Free Advanced Affiliate Network. Learn, earn, and scale with absolute trust.
                 </p>
                 <div className="text-xs text-gray-300 font-semibold mb-4">
                   Partner Company: <span className="text-blue-400">RADHIKA PRODUCTION HOUSE</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <a href="#" className="w-8 h-8 rounded-lg bg-white/5 hover:bg-blue-600 text-gray-300 hover:text-white flex items-center justify-center text-xs transition">in</a>
-                  <a href="#" className="w-8 h-8 rounded-lg bg-white/5 hover:bg-pink-600 text-gray-300 hover:text-white flex items-center justify-center text-xs transition">ig</a>
-                  <a href="#" className="w-8 h-8 rounded-lg bg-white/5 hover:bg-blue-700 text-gray-300 hover:text-white flex items-center justify-center text-xs transition">fb</a>
                 </div>
               </div>
 
@@ -1140,3 +1147,4 @@
   </script>
 </body>
 </html>
+
