@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ RAMMS MODELING MANAGEMENT | India's Premier Casting & Talent Agency</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-darker: #050507;
+      --card-bg: #131318;
+      --card-alt: #181820;
+      --accent: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.3);
+      --text: #f5f5f7;
+      --text-muted: #8e8e98;
+      --border: #242430;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 1px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* SECTION TITLES */
+    .section-wrap {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-sub {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .btn-gold {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.75rem 1.8rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-solid {
+      background: var(--accent);
+      color: #000;
+      border: 1px solid var(--accent);
+      padding: 0.75rem 1.8rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .btn-solid:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    /* 1. TOP TICKER & REAL TIME STATUS */
+    .top-bar {
+      background: var(--bg-darker);
+      border-bottom: 1px solid var(--border);
+      padding: 0.45rem 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1002;
+    }
+
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #00ff73;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px #00ff73;
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    .ticker-box {
+      width: 45%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: loopTicker 26s linear infinite;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @keyframes loopTicker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    /* 2. SERVICES QUICK RIBBON */
+    .services-ribbon {
+      background: #0e0e13;
+      border-bottom: 1px solid var(--border);
+      padding: 0.55rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      position: sticky;
+      top: 31px;
+      z-index: 1001;
+    }
+
+    .services-ribbon span { color: var(--accent); margin-right: 0.4rem; }
+
+    /* 3. MAIN NAVIGATION */
+    header {
+      position: sticky;
+      top: 62px;
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: #fff; font-weight: 300; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+      font-weight: 400;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* 4. HERO SECTION (FULL SLIDER EFFECT) */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(9, 9, 11, 0.65), rgba(9, 9, 11, 0.9)), 
+                  url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero-tag {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    /* 5. ABOUT AGENCY */
+    .about-section {
+      background: var(--bg-darker);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .about-stat-item {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .about-stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .about-stat-lbl {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .about-media {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      filter: grayscale(20%);
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--card-bg);
+      border: 1px solid var(--accent);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .experience-badge .num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .experience-badge .txt {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* 6. WHAT WE DO (FULL SERVICES - LIKE MUMBAI DREAMS) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    /* 7. MANUAL MODEL CAROUSEL / SLIDERS (HAND-DRIVEN) */
+    .slider-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .slider-ctrls {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .ctrl-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .ctrl-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.8rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 0;
+    }
+
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .model-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .model-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px);
+    }
+
+    .model-img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%);
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .model-card:hover .model-img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .model-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .model-info-box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: linear-gradient(0deg, #09090b 40%, transparent 100%);
+    }
+
+    .model-name {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .model-stats-quick {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 8. CASTING PROCESS (HOW IT WORKS) */
+    .process-section {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    .process-card {
+      padding: 2rem 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+      font-size: 1rem;
+    }
+
+    .process-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .process-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* 9. STATS COUNTERS (WE ARE IN NUMBERS) */
+    .stats-counter-section {
+      background: linear-gradient(rgba(9, 9, 11, 0.9), rgba(9, 9, 11, 0.9)), 
+                  url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop') fixed center/cover;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+    }
+
+    .counter-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .counter-item .number {
+      font-size: 3.5rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .counter-item .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    /* 10. AUDITIONS & CASTING CALLS LOGBOOK */
+    .calls-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+
+    .calls-table th {
+      background: var(--bg-darker);
+      padding: 1.2rem;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .calls-table td {
+      padding: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .calls-table tr:hover td {
+      color: #fff;
+      background: rgba(212, 175, 55, 0.03);
+    }
+
+    .tag-open {
+      color: #00ff73;
+      border: 1px solid #00ff73;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    /* 11. TESTIMONIALS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .quote-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .testimonial-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-info h5 {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .client-info span {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 12. CALL TO ACTION / GOOGLE FORMS HUB */
+    .cta-hub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .cta-box {
+      background: linear-gradient(145deg, #16161d, #0d0d12);
+      border: 1px solid var(--border);
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-box:hover {
+      border-color: var(--accent);
+    }
+
+    .cta-box h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* MODAL WINDOW FOR PROFILES */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stats-table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .stats-table td {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-table td:first-child {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 13. CORPORATE FOOTER */
+    footer {
+      background: var(--bg-darker);
+      border-top: 1px solid var(--border);
+      padding: 5rem 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 320px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .ticker-box { display: none; }
+      .about-grid, .cta-hub-grid, .footer-grid, .modal-content { grid-template-columns: 1fr; }
+      .process-grid, .counter-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.8rem; }
+      .modal-img { height: 350px; min-height: auto; }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid, .counter-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .services-ribbon { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: TOP REAL-TIME AUDIT & LIVE TICKER -->
+  <div class="top-bar">
+    <div class="live-indicator">
+      <span><i class="live-dot"></i> LIVE NETWORK</span>
+      <span>HQ: MUMBAI &bull; DELHI</span>
+      <span id="realClock">--:--:-- IST</span>
+      <span id="realDate">--/--/----</span>
+    </div>
+
+    <div class="ticker-box">
+      <div class="ticker-content">
+        [NOW CASTING] Lakme Fashion Week Runway Board &bull; [AUDITION CALL] Paris Editorial Tour Digitals &bull; [CONFIRMED] XYZ RAMMS Signs 8 Exclusive Faces &bull; [PRODUCTION] High-End Commercial Shoot Mumbai Open &bull;
+      </div>
+    </div>
+
+    <div style="color: var(--accent); font-weight: 600;">
+      ESTABLISHED CORP.
+    </div>
+  </div>
+
+  <!-- SECTION 2: TOP SERVICES BAR -->
+  <div class="services-ribbon">
+    <div><span>✦</span> Portfolio Management</div>
+    <div><span>✦</span> Grooming & Personality</div>
+    <div><span>✦</span> In-House Production Studio</div>
+    <div><span>✦</span> Professional Makeup & Styling</div>
+    <div><span>✦</span> Global Runway Placements</div>
+  </div>
+
+  <!-- SECTION 3: NAVIGATION HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">XYZ RAMMS <span>MODELING</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About Agency</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#female-models">Female Board</a></li>
+        <li><a href="#male-models">Male Board</a></li>
+        <li><a href="#casting-calls">Auditions</a></li>
+        <li><a href="#register">Register as Talent</a></li>
+        <li><a href="#book" class="btn-gold">Hire Talent</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- SECTION 4: HERO SHOWCASE -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">A Premier Model Management & Casting Agency</span>
+      <h1 class="hero-title">Discover, Groom & Launch Extraordinary Talent</h1>
+      <p class="hero-desc">XYZ RAMMS connects elite models and actors with leading production houses, advertising agencies, international fashion weeks, and commercial brands.</p>
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#register" class="btn-solid">Register for Free</a>
+        <a href="#book" class="btn-gold">Hire Agency Talent</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ABOUT THE AGENCY -->
+  <section class="section-wrap about-section" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-sub">About XYZ RAMMS Management</span>
+        <h3>Leading the Vanguard of Casting & Production Excellence</h3>
+        <p>XYZ RAMMS has carved an uncompromising niche as a high-standard talent management house. We bring together a complete powerhouse team of fashion photographers, commercial directors, grooming mentors, hairstylists, and talent managers under one unified roof.</p>
+        <p>Our casting board analyzes every aspirant's identity and potential, bridging fresh faces with India's most prestigious luxury campaigns, OTT originals, and couture presentations.</p>
+        
+        <div class="about-stats-grid">
+          <div class="about-stat-item">
+            <div class="about-stat-num">100%</div>
+            <div class="about-stat-lbl">Verified Audition Calls</div>
+          </div>
+          <div class="about-stat-item">
+            <div class="about-stat-num">500+</div>
+            <div class="about-stat-lbl">Production Tie-Ups</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-media">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop" class="about-img" alt="Editorial Fashion">
+        <div class="experience-badge">
+          <div class="num">TOP</div>
+          <div class="txt">Tier Agency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: COMPLETE AGENCY SERVICES (LIKE MUMBAI DREAMS) -->
+  <section class="section-wrap" id="services">
+    <div class="section-header">
+      <span class="section-sub">Agency Ecosystem</span>
+      <h2 class="section-title">End-to-End Talent Solutions</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <i class="fa-solid fa-camera-retro service-icon"></i>
+        <h4>Portfolio Shoots</h4>
+        <p>We groom, shoot high-fashion portfolios, promote, and launch models into print advertising, international agencies, and catalog editorials.</p>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <i class="fa-solid fa-wand-magic-sparkles service-icon"></i>
+        <h4>Grooming & Persona</h4>
+        <p>Intensive grooming classes covering ramp walk, screen audition techniques, camera posing, and personal brand development by industry veterans.</p>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <i class="fa-solid fa-paint-brush service-icon"></i>
+        <h4>Editorial Makeup & Styling</h4>
+        <p>Our certified high-fashion and commercial stylists ensure every model is prepped with impeccable editorial aesthetic for every client presentation.</p>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <i class="fa-solid fa-building-user service-icon"></i>
+        <h4>Studio on Hire</h4>
+        <p>Fully equipped, acoustic daylight and chroma photo studios in Mumbai with high-end profoto lighting systems available for commercial productions.</p>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card">
+        <i class="fa-solid fa-film service-icon"></i>
+        <h4>Advertising Print & TVC</h4>
+        <p>Comprehensive casting and shooting for magazine covers, print hoardings, e-commerce lookbooks, TV commercials, and digital films.</p>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card">
+        <i class="fa-solid fa-globe service-icon"></i>
+        <h4>Global Placements</h4>
+        <p>Direct placement tie-ups with partner agencies across Milan, Paris, London, and Dubai for international modeling assignments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FEMALE TALENT BOARD (HAND SLIDER) -->
+  <section class="section-wrap" id="female-models" style="padding-top: 0;">
+    <div class="slider-header-flex">
+      <div>
+        <span class="section-sub">Editorial & Commercial</span>
+        <h2 class="section-title">Female Model Board</h2>
+      </div>
+      <div class="slider-ctrls">
+        <button class="ctrl-btn" onclick="slideModels('femaleTrack', -1)" title="Previous">&#8592;</button>
+        <button class="ctrl-btn" onclick="slideModels('femaleTrack', 1)" title="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Hand Swipe Track -->
+    <div class="carousel-track" id="femaleTrack">
+      <!-- Model 1 -->
+      <div class="model-card" onclick="openProfile('Aanya Roy', 'Female Division', '5\'10\'\'', '32-24-35', 'Hazel', 'Black', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop', 'Lakme Fashion Week, Vogue India Editorial')">
+        <span class="model-badge">Editorial</span>
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Aanya Roy</div>
+          <div class="model-stats-quick">Height: 5'10'' &bull; Bust: 32</div>
+        </div>
+      </div>
+
+      <!-- Model 2 -->
+      <div class="model-card" onclick="openProfile('Rhea Sen', 'Female Division', '5\'9\'\'', '33-25-36', 'Dark Brown', 'Black', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop', 'Harper\'s Bazaar, Milan Fashion Week')">
+        <span class="model-badge">Runway</span>
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Rhea Sen</div>
+          <div class="model-stats-quick">Height: 5'9'' &bull; Bust: 33</div>
+        </div>
+      </div>
+
+      <!-- Model 3 -->
+      <div class="model-card" onclick="openProfile('Zoya Mirza', 'Female Division', '5\'11\'\'', '34-24-35', 'Amber', 'Dark Brown', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop', 'Elle Global, Paris Haute Couture')">
+        <span class="model-badge">High Fashion</span>
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Zoya Mirza</div>
+          <div class="model-stats-quick">Height: 5'11'' &bull; Bust: 34</div>
+        </div>
+      </div>
+
+      <!-- Model 4 -->
+      <div class="model-card" onclick="openProfile('Natasha Verma', 'Female Division', '5\'8\'\'', '32-24-34', 'Green', 'Brown', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop', 'Commercial TVC, Sabyasachi Lookbook')">
+        <span class="model-badge">Commercial</span>
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Natasha Verma</div>
+          <div class="model-stats-quick">Height: 5'8'' &bull; Commercial Face</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: MALE TALENT BOARD (HAND SLIDER) -->
+  <section class="section-wrap" id="male-models" style="padding-top: 0;">
+    <div class="slider-header-flex">
+      <div>
+        <span class="section-sub">Runway & Commercial Faces</span>
+        <h2 class="section-title">Male Model Board</h2>
+      </div>
+      <div class="slider-ctrls">
+        <button class="ctrl-btn" onclick="slideModels('maleTrack', -1)" title="Previous">&#8592;</button>
+        <button class="ctrl-btn" onclick="slideModels('maleTrack', 1)" title="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Hand Swipe Track -->
+    <div class="carousel-track" id="maleTrack">
+      <!-- Male 1 -->
+      <div class="model-card" onclick="openProfile('Karan Mehra', 'Male Division', '6\'2\'\'', '40-31-38', 'Hazel', 'Dark Brown', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop', 'GQ India, Armani Exchange Campaign')">
+        <span class="model-badge">Editorial</span>
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Karan Mehra</div>
+          <div class="model-stats-quick">Height: 6'2'' &bull; Chest: 40</div>
+        </div>
+      </div>
+
+      <!-- Male 2 -->
+      <div class="model-card" onclick="openProfile('Aditya Kapoor', 'Male Division', '6\'1\'\'', '39-30-37', 'Black', 'Black', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop', 'FDCI Men\'s Fashion Week, Fragrance Commercial')">
+        <span class="model-badge">Runway</span>
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Aditya Kapoor</div>
+          <div class="model-stats-quick">Height: 6'1'' &bull; Chest: 39</div>
+        </div>
+      </div>
+
+      <!-- Male 3 -->
+      <div class="model-card" onclick="openProfile('Vikram Sethi', 'Male Division', '6\'3\'\'', '41-32-39', 'Black', 'Black', 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop', 'Louis Vuitton Exclusive, High Street TVC')">
+        <span class="model-badge">Campaign</span>
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Vikram Sethi</div>
+          <div class="model-stats-quick">Height: 6'3'' &bull; Chest: 41</div>
+        </div>
+      </div>
+
+      <!-- Male 4 -->
+      <div class="model-card" onclick="openProfile('Dev Chauhan', 'Male Division', '6\'0\'\'', '38-30-36', 'Brown', 'Black', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop', 'Amazon Prime Series, Fitness Brand Campaign')">
+        <span class="model-badge">Commercial</span>
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
+        <div class="model-info-box">
+          <div class="model-name">Dev Chauhan</div>
+          <div class="model-stats-quick">Height: 6'0'' &bull; Fitness & TVC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: CASTING PROCESS (HOW TALENT GETS SIGNED) -->
+  <section class="process-section section-wrap">
+    <div class="section-header">
+      <span class="section-sub">Standard Protocol</span>
+      <h2 class="section-title">How Our Casting Works</h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="step-num">1</div>
+        <h4>Online Audition</h4>
+        <p>Talents submit clean unedited digitals and basic stats through our official casting registration form.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="step-num">2</div>
+        <h4>Profile Curation</h4>
+        <p>Our senior directors evaluate your potential for commercial, editorial, or runway representation.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="step-num">3</div>
+        <h4>Test Shoot & Prep</h4>
+        <p>Selected talents undergo in-house studio test shoots, grooming guidance, and comp-card design.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="step-num">4</div>
+        <h4>Brand Pitching</h4>
+        <p>We pitch your official portfolio directly to top casting directors, advertising agencies, and designers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: WE ARE IN NUMBERS (COUNTER STATS) -->
+  <div class="stats-counter-section">
+    <div class="counter-grid">
+      <div class="counter-item">
+        <div class="number">350+</div>
+        <div class="label">Represented Models</div>
+      </div>
+      <div class="counter-item">
+        <div class="number">120+</div>
+        <div class="label">Fashion Weeks & Shows</div>
+      </div>
+      <div class="counter-item">
+        <div class="number">240+</div>
+        <div class="label">Ad Campaigns Shot</div>
+      </div>
+      <div class="counter-item">
+        <div class="number">100%</div>
+        <div class="label">Legitimate Representation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11: CURRENT AUDITIONS & CASTING CALLS (LOGBOOK) -->
+  <section class="section-wrap" id="casting-calls">
+    <div class="section-header">
+      <span class="section-sub">Live Notice Board</span>
+      <h2 class="section-title">Active Auditions & Casting Calls</h2>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table class="calls-table">
+        <thead>
+          <tr>
+            <th>Project Title</th>
+            <th>Category Required</th>
+            <th>Shooting Location</th>
+            <th>Submission Deadline</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lakme Fashion Week Winter/Festive</strong></td>
+            <td>Female (Min Height 5'9''), Male (Min Height 6'0'')</td>
+            <td>Mumbai, Maharashtra</td>
+            <td>Oct 30, 2026</td>
+            <td><span class="tag-open">Auditions Active</span></td>
+          </tr>
+          <tr>
+            <td><strong>National Beverage TV Commercial</strong></td>
+            <td>Ages 18 - 25, Expressive Commercial Faces</td>
+            <td>Mumbai / Goa Sets</td>
+            <td>Nov 05, 2026</td>
+            <td><span class="tag-open">Casting Open</span></td>
+          </tr>
+          <tr>
+            <td><strong>International Magazine Cover Editorial</strong></td>
+            <td>High-Fashion High-Cheekbone Models</td>
+            <td>New Delhi Studios</td>
+            <td>Nov 12, 2026</td>
+            <td><span class="tag-open">Shortlisting</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 12: TESTIMONIALS (WHAT CLIENTS & ARTISTES SAY) -->
+  <section class="section-wrap" style="background: var(--bg-darker); border-top: 1px solid var(--border);">
+    <div class="section-header">
+      <span class="section-sub">Client Accolades</span>
+      <h2 class="section-title">Testimonials & Reviews</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"XYZ RAMMS provided top-tier professional faces for our autumn campaign on extremely short notice. Truly corporate and seamless coordination."</p>
+        <div class="client-info">
+          <h5>Vikramaditya Roy</h5>
+          <span>Creative Director, Studio Nine Films</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"I registered through their scout link last year. Within four months, I was booked for two major runway shows and an e-commerce campaign."</p>
+        <div class="client-info">
+          <h5>Shreya Singhal</h5>
+          <span>Agency Model</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"Their portfolio shoot and grooming sessions gave my daughter the exact industry readiness needed for television ad casting. Highly recommended."</p>
+        <div class="client-info">
+          <h5>Sunita Khanna</h5>
+          <span>Talent Guardian</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 13: REGISTRATION & DIRECT BOOKING (READY FOR GOOGLE FORMS) -->
+  <section class="section-wrap" id="hub">
+    <div class="cta-hub-grid">
+      <!-- Register Box -->
+      <div class="cta-box" id="register">
+        <span class="section-sub">Join The Agency</span>
+        <h3>Register as Talent</h3>
+        <p>No upfront registration scams. Submit your natural digitals, height stats, and contact details directly to our authorized scouting team.</p>
+        <!-- Paste your Google Form link here -->
+        <a href="https://forms.google.com" target="_blank" class="btn-solid">Open Talent Application Form</a>
+      </div>
+
+      <!-- Book Talent Box -->
+      <div class="cta-box" id="book">
+        <span class="section-sub">For Brands & Directors</span>
+        <h3>Casting & Book Talent</h3>
+        <p>Inquire regarding model availability, booking rates, and lookbook packages for films, commercials, or international runway tours.</p>
+        <!-- Paste your Google Form link here -->
+        <a href="https://forms.google.com" target="_blank" class="btn-gold">Request Booking / Casting Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDIVIDUAL MODEL DETAIL MODAL -->
+  <div class="modal" id="modelModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProfile()">&times;</button>
+      <img id="mImg" src="" class="modal-img" alt="Profile">
+      <div class="modal-body">
+        <span class="section-sub" id="mCategory">DIVISION</span>
+        <h3 style="font-size: 2.4rem; margin: 0.3rem 0;" id="mName">Model Name</h3>
+        <p id="mBio" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Experience highlights</p>
+        
+        <table class="stats-table">
+          <tr>
+            <td>Height</td>
+            <td id="mHeight">-</td>
+          </tr>
+          <tr>
+            <td>Measurements</td>
+            <td id="mStats">-</td>
+          </tr>
+          <tr>
+            <td>Eyes</td>
+            <td id="mEyes">-</td>
+          </tr>
+          <tr>
+            <td>Hair</td>
+            <td id="mHair">-</td>
+          </tr>
+        </table>
+        
+        <a href="#book" class="btn-solid" onclick="closeProfile()" style="text-align: center; margin-top: 1rem;">Book This Model</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & PRIVACY MODAL -->
+  <div class="modal" id="legalModal">
+    <div class="modal-content" style="grid-template-columns: 1fr; padding: 3rem; max-height: 80vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeLegal()">&times;</button>
+      <h3 style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;">Corporate Terms & Privacy Governance</h3>
+      <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.8;">
+        <strong>XYZ RAMMS MODELING MANAGEMENT</strong> strictly adheres to commercial talent representation laws.<br><br>
+        1. <strong>Representation Rights:</strong> All model imagery and comp-cards hosted on this portal remain the exclusive property of XYZ RAMMS and its respective photographers.<br>
+        2. <strong>Scouting Safety:</strong> We do not conduct auditions via unofficial telegram groups or ask for unverified payments. Official scouting happens strictly via verified Google forms and authorized email addresses.<br>
+        3. <strong>Client Inquiries:</strong> Direct booking quotations are confirmed solely after signed assignment contracts.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 14: FULL CORPORATE FOOTER -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 1.2rem;">XYZ RAMMS <span>MODELING</span></div>
+        <p>The executive casting and talent standard. Curating, grooming, and managing visionary models and actors for campaigns across India and worldwide markets.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Talent Boards</h4>
+        <ul class="footer-links">
+          <li><a href="#female-models">Female Models Board</a></li>
+          <li><a href="#male-models">Male Models Board</a></li>
+          <li><a href="#casting-calls">Audition Announcements</a></li>
+          <li><a href="#register">Register for Scouting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services & Media</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Portfolio Shoots</a></li>
+          <li><a href="#services">Grooming & Training</a></li>
+          <li><a href="#services">Studio Infrastructure</a></li>
+          <li><a href="#services">Runway Management</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Corporate Office</h4>
+        <p>Corporate Office: Mumbai Casting Division, Maharashtra, India.</p>
+        <p style="margin-top: 0.5rem; color: var(--accent);">Direct: +91 97699 20320 / +91 98207 99718</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Email: corporate@rammsgroups.site</p>
+        <div style="margin-top: 1rem;">
+          <a href="javascript:void(0)" onclick="openLegal()" style="color: var(--accent); font-size: 0.8rem; text-decoration: underline;">Terms & Conditions &bull; Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 XYZ RAMMS MODELING MANAGEMENT. All Rights Reserved. Mumbai &bull; New Delhi &bull; Worldwide Network.
+    </div>
+  </footer>
+
+  <!-- ADVANCED JAVASCRIPT -->
+  <script>
+    // 1. REAL-TIME CLOCK & CURRENT DATE (हर सेकंड लाइव चलेगा)
+    function runLiveClock() {
+      const now = new Date();
+      const hrs = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      const secs = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('realClock').innerText = `${hrs}:${mins}:${secs} IST`;
+
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      document.getElementById('realDate').innerText = now.toLocaleDateString('en-GB', options).toUpperCase();
+    }
+    setInterval(runLiveClock, 1000);
+    runLiveClock();
+
+    // 2. HAND / ARROW SLIDER FOR MODEL TRACKS (हाथ से स्विच करने वाला)
+    function slideModels(trackId, direction) {
+      const track = document.getElementById(trackId);
+      const scrollStep = 340; // Card width + gap
+      track.scrollBy({
+        left: direction * scrollStep,
+        behavior: 'smooth'
+      });
+    }
+
+    // 3. INDIVIDUAL MODEL MODAL POPUP
+    function openProfile(name, cat, height, stats, eyes, hair, img, bio) {
+      document.getElementById('mName').innerText = name;
+      document.getElementById('mCategory').innerText = cat.toUpperCase();
+      document.getElementById('mHeight').innerText = height;
+      document.getElementById('mStats').innerText = stats;
+      document.getElementById('mEyes').innerText = eyes;
+      document.getElementById('mHair').innerText = hair;
+      document.getElementById('mImg').src = img;
+      document.getElementById('mBio').innerText = bio;
+
+      document.getElementById('modelModal').style.display = 'flex';
+    }
+
+    function closeProfile() {
+      document.getElementById('modelModal').style.display = 'none';
+    }
+
+    // 4. TERMS & POLICY MODAL
+    function openLegal() {
+      document.getElementById('legalModal').style.display = 'flex';
+    }
+
+    function closeLegal() {
+      document.getElementById('legalModal').style.display = 'none';
+    }
+
+    // Window click dismiss
+    window.onclick = function(e) {
+      const m1 = document.getElementById('modelModal');
+      const m2 = document.getElementById('legalModal');
+      if (e.target === m1) m1.style.display = 'none';
+      if (e.target === m2) m2.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
