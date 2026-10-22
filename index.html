@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XYZ RAMMS MODELING MANAGEMENT | India's Premier Casting & Talent Agency</title>
+  <title>XYZ RAMMS MODELING MANAGEMENT | Elite Casting & Talent Agency</title>
   
-  <!-- Google Fonts & FontAwesome -->
+  <!-- Premium Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,15 +14,15 @@
   <style>
     :root {
       --bg: #09090b;
-      --bg-darker: #050507;
-      --card-bg: #131318;
+      --bg-darker: #040406;
+      --card-bg: #121217;
       --card-alt: #181820;
       --accent: #d4af37;
-      --accent-glow: rgba(212, 175, 55, 0.3);
+      --accent-glow: rgba(212, 175, 55, 0.35);
       --text: #f5f5f7;
       --text-muted: #8e8e98;
-      --border: #242430;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border: #23232f;
+      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     * {
@@ -50,7 +50,6 @@
       color: inherit;
     }
 
-    /* SECTION TITLES */
     .section-wrap {
       padding: 6rem 2rem;
       max-width: 1400px;
@@ -68,12 +67,12 @@
       letter-spacing: 4px;
       color: var(--accent);
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       font-weight: 600;
     }
 
     .section-title {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 400;
       line-height: 1.2;
     }
@@ -82,7 +81,7 @@
       background: transparent;
       border: 1px solid var(--accent);
       color: var(--accent);
-      padding: 0.75rem 1.8rem;
+      padding: 0.8rem 2rem;
       text-transform: uppercase;
       font-size: 0.75rem;
       letter-spacing: 2px;
@@ -102,7 +101,7 @@
       background: var(--accent);
       color: #000;
       border: 1px solid var(--accent);
-      padding: 0.75rem 1.8rem;
+      padding: 0.8rem 2rem;
       text-transform: uppercase;
       font-size: 0.75rem;
       letter-spacing: 2px;
@@ -117,7 +116,7 @@
       color: var(--accent);
     }
 
-    /* 1. TOP TICKER & REAL TIME STATUS */
+    /* 1. TOP LIVE TICKER & TIME SYSTEM */
     .top-bar {
       background: var(--bg-darker);
       border-bottom: 1px solid var(--border);
@@ -164,7 +163,7 @@
     .ticker-content {
       display: inline-block;
       padding-left: 100%;
-      animation: loopTicker 26s linear infinite;
+      animation: loopTicker 25s linear infinite;
       color: var(--accent);
       font-weight: 500;
     }
@@ -193,7 +192,7 @@
 
     .services-ribbon span { color: var(--accent); margin-right: 0.4rem; }
 
-    /* 3. MAIN NAVIGATION */
+    /* 3. NAVIGATION */
     header {
       position: sticky;
       top: 62px;
@@ -233,12 +232,11 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       transition: var(--transition);
-      font-weight: 400;
     }
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* 4. HERO SECTION (FULL SLIDER EFFECT) */
+    /* 4. HERO SECTION */
     .hero {
       position: relative;
       height: 90vh;
@@ -253,7 +251,6 @@
 
     .hero-content {
       max-width: 950px;
-      animation: fadeIn 1s ease-out;
     }
 
     .hero-tag {
@@ -280,93 +277,112 @@
       font-weight: 300;
     }
 
-    /* 5. ABOUT AGENCY */
-    .about-section {
+    /* 5. FOUNDER & LEADERSHIP SECTION (MANOJ BHATT) */
+    .founder-section {
       background: var(--bg-darker);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      position: relative;
     }
 
-    .about-grid {
+    .founder-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 4rem;
       align-items: center;
     }
 
-    .about-text h3 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-    }
-
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .about-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .about-stat-item {
-      border-left: 2px solid var(--accent);
-      padding-left: 1rem;
-    }
-
-    .about-stat-num {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .about-stat-lbl {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-    }
-
-    .about-media {
+    .founder-img-card {
       position: relative;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      text-align: center;
+      padding: 1.2rem;
+      border-radius: 4px;
     }
 
-    .about-img {
+    .founder-img-card::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--accent);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .founder-photo {
       width: 100%;
       height: 520px;
       object-fit: cover;
-      border: 1px solid var(--border);
-      filter: grayscale(20%);
+      object-position: top center;
+      position: relative;
+      z-index: 1;
+      border-radius: 2px;
+      display: block;
     }
 
-    .experience-badge {
+    .founder-meta-badge {
       position: absolute;
-      bottom: -20px;
-      left: -20px;
-      background: var(--card-bg);
+      bottom: 25px;
+      right: 25px;
+      background: rgba(9, 9, 11, 0.95);
       border: 1px solid var(--accent);
-      padding: 1.5rem 2rem;
-      text-align: center;
+      padding: 0.8rem 1.4rem;
+      z-index: 2;
+      text-align: left;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
 
-    .experience-badge .num {
-      font-size: 2.2rem;
+    .founder-meta-badge .name-tag {
+      font-size: 1.15rem;
       font-weight: 700;
+      color: #fff;
+    }
+
+    .founder-meta-badge .post-tag {
+      font-size: 0.72rem;
       color: var(--accent);
-      line-height: 1;
-    }
-
-    .experience-badge .txt {
-      font-size: 0.7rem;
-      letter-spacing: 1px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* 6. WHAT WE DO (FULL SERVICES - LIKE MUMBAI DREAMS) */
+    .founder-desc h3 {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+
+    .founder-desc .title-gold {
+      color: var(--accent);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .founder-desc p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .founder-quote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      font-style: italic;
+      color: #fff;
+      margin: 2rem 0;
+      font-size: 1.15rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* 6. SERVICES GRID */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -401,10 +417,9 @@
     .service-card p {
       color: var(--text-muted);
       font-size: 0.88rem;
-      line-height: 1.7;
     }
 
-    /* 7. MANUAL MODEL CAROUSEL / SLIDERS (HAND-DRIVEN) */
+    /* 7. MANUAL HAND SWITCH SLIDERS */
     .slider-header-flex {
       display: flex;
       justify-content: space-between;
@@ -429,7 +444,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: var(--transition);
     }
 
@@ -514,7 +529,7 @@
       letter-spacing: 1px;
     }
 
-    /* 8. CASTING PROCESS (HOW IT WORKS) */
+    /* 8. CASTING PROCESS */
     .process-section {
       background: var(--card-bg);
       border-top: 1px solid var(--border);
@@ -525,27 +540,24 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      position: relative;
     }
 
     .process-card {
-      padding: 2rem 1.5rem;
+      padding: 2.2rem 1.5rem;
       background: var(--bg);
       border: 1px solid var(--border);
       text-align: center;
-      position: relative;
     }
 
     .step-num {
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
       border-radius: 50%;
       background: var(--accent);
       color: #000;
       font-weight: 700;
       margin: 0 auto 1.5rem;
-      font-size: 1rem;
     }
 
     .process-card h4 {
@@ -558,7 +570,7 @@
       font-size: 0.85rem;
     }
 
-    /* 9. STATS COUNTERS (WE ARE IN NUMBERS) */
+    /* 9. STATS COUNTERS */
     .stats-counter-section {
       background: linear-gradient(rgba(9, 9, 11, 0.9), rgba(9, 9, 11, 0.9)), 
                   url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop') fixed center/cover;
@@ -591,7 +603,7 @@
       color: #fff;
     }
 
-    /* 10. AUDITIONS & CASTING CALLS LOGBOOK */
+    /* 10. ACTIVE CASTING CALLS */
     .calls-table {
       width: 100%;
       border-collapse: collapse;
@@ -631,47 +643,7 @@
       text-transform: uppercase;
     }
 
-    /* 11. TESTIMONIALS */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .testimonial-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      position: relative;
-    }
-
-    .quote-icon {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      opacity: 0.5;
-    }
-
-    .testimonial-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    .client-info h5 {
-      font-size: 1.1rem;
-      color: #fff;
-    }
-
-    .client-info span {
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* 12. CALL TO ACTION / GOOGLE FORMS HUB */
+    /* 11. REGISTRATION & BOOKING HUB */
     .cta-hub-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -683,7 +655,6 @@
       border: 1px solid var(--border);
       padding: 4rem 3rem;
       text-align: center;
-      position: relative;
     }
 
     .cta-box:hover {
@@ -728,7 +699,6 @@
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       position: relative;
-      animation: fadeIn 0.3s ease;
     }
 
     .modal-close {
@@ -775,7 +745,7 @@
       letter-spacing: 1px;
     }
 
-    /* 13. CORPORATE FOOTER */
+    /* 12. FOOTER */
     footer {
       background: var(--bg-darker);
       border-top: 1px solid var(--border);
@@ -835,29 +805,29 @@
       font-size: 0.8rem;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .ticker-box { display: none; }
-      .about-grid, .cta-hub-grid, .footer-grid, .modal-content { grid-template-columns: 1fr; }
-      .process-grid, .counter-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .founder-grid, .cta-hub-grid, .footer-grid, .modal-content { grid-template-columns: 1fr; }
+      .process-grid, .counter-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
       .hero-title { font-size: 2.8rem; }
       .modal-img { height: 350px; min-height: auto; }
+      .founder-photo { height: 420px; }
     }
 
     @media (max-width: 600px) {
-      .process-grid, .counter-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .process-grid, .counter-grid { grid-template-columns: 1fr; }
       .services-ribbon { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- SECTION 1: TOP REAL-TIME AUDIT & LIVE TICKER -->
+  <!-- SECTION 1: TOP REAL-TIME AUDIT & TICKER -->
   <div class="top-bar">
     <div class="live-indicator">
       <span><i class="live-dot"></i> LIVE NETWORK</span>
-      <span>HQ: MUMBAI &bull; DELHI</span>
+      <span>HQ: MUMBAI &bull; GLOBAL</span>
       <span id="realClock">--:--:-- IST</span>
       <span id="realDate">--/--/----</span>
     </div>
@@ -878,7 +848,7 @@
     <div><span>✦</span> Portfolio Management</div>
     <div><span>✦</span> Grooming & Personality</div>
     <div><span>✦</span> In-House Production Studio</div>
-    <div><span>✦</span> Professional Makeup & Styling</div>
+    <div><span>✦</span> Professional Styling</div>
     <div><span>✦</span> Global Runway Placements</div>
   </div>
 
@@ -887,18 +857,18 @@
     <div class="nav-container">
       <a href="#" class="logo">XYZ RAMMS <span>MODELING</span></a>
       <ul class="nav-links">
-        <li><a href="#about">About Agency</a></li>
+        <li><a href="#founder">Founder</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#female-models">Female Board</a></li>
         <li><a href="#male-models">Male Board</a></li>
         <li><a href="#casting-calls">Auditions</a></li>
-        <li><a href="#register">Register as Talent</a></li>
+        <li><a href="#register">Register Talent</a></li>
         <li><a href="#book" class="btn-gold">Hire Talent</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- SECTION 4: HERO SHOWCASE -->
+  <!-- SECTION 4: HERO LANDING -->
   <div class="hero">
     <div class="hero-content">
       <span class="hero-tag">A Premier Model Management & Casting Agency</span>
@@ -911,38 +881,42 @@
     </div>
   </div>
 
-  <!-- SECTION 5: ABOUT THE AGENCY -->
-  <section class="section-wrap about-section" id="about">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="section-sub">About XYZ RAMMS Management</span>
-        <h3>Leading the Vanguard of Casting & Production Excellence</h3>
-        <p>XYZ RAMMS has carved an uncompromising niche as a high-standard talent management house. We bring together a complete powerhouse team of fashion photographers, commercial directors, grooming mentors, hairstylists, and talent managers under one unified roof.</p>
-        <p>Our casting board analyzes every aspirant's identity and potential, bridging fresh faces with India's most prestigious luxury campaigns, OTT originals, and couture presentations.</p>
-        
-        <div class="about-stats-grid">
-          <div class="about-stat-item">
-            <div class="about-stat-num">100%</div>
-            <div class="about-stat-lbl">Verified Audition Calls</div>
-          </div>
-          <div class="about-stat-item">
-            <div class="about-stat-num">500+</div>
-            <div class="about-stat-lbl">Production Tie-Ups</div>
-          </div>
+  <!-- SECTION 5: EXECUTIVE LEADERSHIP / FOUNDER (MANOJ BHATT) -->
+  <section class="section-wrap founder-section" id="founder">
+    <div class="founder-grid">
+      
+      <!-- Founder Photo Card with Your Uploaded Image -->
+      <div class="founder-img-card">
+        <img src="https://i.ibb.co/cKqn7ppz/IMG-20261022-WA0009.jpg" class="founder-photo" id="founderImg" alt="Manoj Bhatt - Founder & Managing Director">
+        <div class="founder-meta-badge">
+          <div class="name-tag">Manoj Bhatt</div>
+          <div class="post-tag">Founder & Managing Director</div>
         </div>
       </div>
 
-      <div class="about-media">
-        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop" class="about-img" alt="Editorial Fashion">
-        <div class="experience-badge">
-          <div class="num">TOP</div>
-          <div class="txt">Tier Agency</div>
+      <!-- Founder Note & Vision -->
+      <div class="founder-desc">
+        <span class="section-sub">Executive Leadership</span>
+        <h3>Manoj Bhatt</h3>
+        <span class="title-gold">Founder & Managing Director, XYZ RAMMS MODELING MANAGEMENT</span>
+        
+        <p>Under the visionary leadership of <strong>Manoj Bhatt</strong>, XYZ RAMMS Modeling Management has emerged as a powerhouse in modern fashion curation, advertising representation, and cinematic talent placement.</p>
+        
+        <div class="founder-quote">
+          "True modeling is not merely about posing for a frame; it is the art of commanding attention, telling an unspoken story, and transforming a brand's vision into cultural prestige."
+        </div>
+
+        <p>Manoj Bhatt’s ethos focuses on identifying raw potential, providing uncompromising professional grooming, and creating transparent, direct avenues into national runways and global commercial campaigns.</p>
+        
+        <div style="margin-top: 2rem;">
+          <a href="#book" class="btn-gold">Connect With Management</a>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- SECTION 6: COMPLETE AGENCY SERVICES (LIKE MUMBAI DREAMS) -->
+  <!-- SECTION 6: COMPLETE AGENCY SERVICES -->
   <section class="section-wrap" id="services">
     <div class="section-header">
       <span class="section-sub">Agency Ecosystem</span>
@@ -950,51 +924,45 @@
     </div>
 
     <div class="services-grid">
-      <!-- Service 1 -->
       <div class="service-card">
         <i class="fa-solid fa-camera-retro service-icon"></i>
         <h4>Portfolio Shoots</h4>
-        <p>We groom, shoot high-fashion portfolios, promote, and launch models into print advertising, international agencies, and catalog editorials.</p>
+        <p>We groom, shoot high-fashion portfolios, promote, and launch models into print advertising, international agencies, and lookbooks.</p>
       </div>
 
-      <!-- Service 2 -->
       <div class="service-card">
         <i class="fa-solid fa-wand-magic-sparkles service-icon"></i>
         <h4>Grooming & Persona</h4>
-        <p>Intensive grooming classes covering ramp walk, screen audition techniques, camera posing, and personal brand development by industry veterans.</p>
+        <p>Intensive grooming classes covering ramp walk, camera presence, screen auditioning, and personal branding by industry mentors.</p>
       </div>
 
-      <!-- Service 3 -->
       <div class="service-card">
         <i class="fa-solid fa-paint-brush service-icon"></i>
         <h4>Editorial Makeup & Styling</h4>
-        <p>Our certified high-fashion and commercial stylists ensure every model is prepped with impeccable editorial aesthetic for every client presentation.</p>
+        <p>Certified commercial and editorial stylists ensuring every signed talent matches international campaign aesthetics.</p>
       </div>
 
-      <!-- Service 4 -->
       <div class="service-card">
         <i class="fa-solid fa-building-user service-icon"></i>
         <h4>Studio on Hire</h4>
-        <p>Fully equipped, acoustic daylight and chroma photo studios in Mumbai with high-end profoto lighting systems available for commercial productions.</p>
+        <p>Acoustic daylight and chroma photo studios in Mumbai with profoto lighting systems available for commercial brand shoots.</p>
       </div>
 
-      <!-- Service 5 -->
       <div class="service-card">
         <i class="fa-solid fa-film service-icon"></i>
         <h4>Advertising Print & TVC</h4>
-        <p>Comprehensive casting and shooting for magazine covers, print hoardings, e-commerce lookbooks, TV commercials, and digital films.</p>
+        <p>Comprehensive casting and shooting for magazine covers, print hoardings, e-commerce lookbooks, TV commercials, and OTT shows.</p>
       </div>
 
-      <!-- Service 6 -->
       <div class="service-card">
         <i class="fa-solid fa-globe service-icon"></i>
         <h4>Global Placements</h4>
-        <p>Direct placement tie-ups with partner agencies across Milan, Paris, London, and Dubai for international modeling assignments.</p>
+        <p>Direct placement tie-ups with partner agencies across Milan, Paris, London, and Dubai for international assignments.</p>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 7: FEMALE TALENT BOARD (HAND SLIDER) -->
+  <!-- SECTION 7: FEMALE TALENT BOARD (HAND SWITCH) -->
   <section class="section-wrap" id="female-models" style="padding-top: 0;">
     <div class="slider-header-flex">
       <div>
@@ -1007,9 +975,7 @@
       </div>
     </div>
 
-    <!-- Hand Swipe Track -->
     <div class="carousel-track" id="femaleTrack">
-      <!-- Model 1 -->
       <div class="model-card" onclick="openProfile('Aanya Roy', 'Female Division', '5\'10\'\'', '32-24-35', 'Hazel', 'Black', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop', 'Lakme Fashion Week, Vogue India Editorial')">
         <span class="model-badge">Editorial</span>
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1019,7 +985,6 @@
         </div>
       </div>
 
-      <!-- Model 2 -->
       <div class="model-card" onclick="openProfile('Rhea Sen', 'Female Division', '5\'9\'\'', '33-25-36', 'Dark Brown', 'Black', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop', 'Harper\'s Bazaar, Milan Fashion Week')">
         <span class="model-badge">Runway</span>
         <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1029,7 +994,6 @@
         </div>
       </div>
 
-      <!-- Model 3 -->
       <div class="model-card" onclick="openProfile('Zoya Mirza', 'Female Division', '5\'11\'\'', '34-24-35', 'Amber', 'Dark Brown', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop', 'Elle Global, Paris Haute Couture')">
         <span class="model-badge">High Fashion</span>
         <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1039,7 +1003,6 @@
         </div>
       </div>
 
-      <!-- Model 4 -->
       <div class="model-card" onclick="openProfile('Natasha Verma', 'Female Division', '5\'8\'\'', '32-24-34', 'Green', 'Brown', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop', 'Commercial TVC, Sabyasachi Lookbook')">
         <span class="model-badge">Commercial</span>
         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1051,7 +1014,7 @@
     </div>
   </section>
 
-  <!-- SECTION 8: MALE TALENT BOARD (HAND SLIDER) -->
+  <!-- SECTION 8: MALE TALENT BOARD (HAND SWITCH) -->
   <section class="section-wrap" id="male-models" style="padding-top: 0;">
     <div class="slider-header-flex">
       <div>
@@ -1064,9 +1027,7 @@
       </div>
     </div>
 
-    <!-- Hand Swipe Track -->
     <div class="carousel-track" id="maleTrack">
-      <!-- Male 1 -->
       <div class="model-card" onclick="openProfile('Karan Mehra', 'Male Division', '6\'2\'\'', '40-31-38', 'Hazel', 'Dark Brown', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop', 'GQ India, Armani Exchange Campaign')">
         <span class="model-badge">Editorial</span>
         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1076,7 +1037,6 @@
         </div>
       </div>
 
-      <!-- Male 2 -->
       <div class="model-card" onclick="openProfile('Aditya Kapoor', 'Male Division', '6\'1\'\'', '39-30-37', 'Black', 'Black', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop', 'FDCI Men\'s Fashion Week, Fragrance Commercial')">
         <span class="model-badge">Runway</span>
         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1086,7 +1046,6 @@
         </div>
       </div>
 
-      <!-- Male 3 -->
       <div class="model-card" onclick="openProfile('Vikram Sethi', 'Male Division', '6\'3\'\'', '41-32-39', 'Black', 'Black', 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop', 'Louis Vuitton Exclusive, High Street TVC')">
         <span class="model-badge">Campaign</span>
         <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1096,7 +1055,6 @@
         </div>
       </div>
 
-      <!-- Male 4 -->
       <div class="model-card" onclick="openProfile('Dev Chauhan', 'Male Division', '6\'0\'\'', '38-30-36', 'Brown', 'Black', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop', 'Amazon Prime Series, Fitness Brand Campaign')">
         <span class="model-badge">Commercial</span>
         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Model">
@@ -1108,7 +1066,7 @@
     </div>
   </section>
 
-  <!-- SECTION 9: CASTING PROCESS (HOW TALENT GETS SIGNED) -->
+  <!-- SECTION 9: CASTING PROCESS -->
   <section class="process-section section-wrap">
     <div class="section-header">
       <span class="section-sub">Standard Protocol</span>
@@ -1142,7 +1100,7 @@
     </div>
   </section>
 
-  <!-- SECTION 10: WE ARE IN NUMBERS (COUNTER STATS) -->
+  <!-- SECTION 10: WE ARE IN NUMBERS -->
   <div class="stats-counter-section">
     <div class="counter-grid">
       <div class="counter-item">
@@ -1164,7 +1122,7 @@
     </div>
   </div>
 
-  <!-- SECTION 11: CURRENT AUDITIONS & CASTING CALLS (LOGBOOK) -->
+  <!-- SECTION 11: CURRENT AUDITIONS & CASTING CALLS -->
   <section class="section-wrap" id="casting-calls">
     <div class="section-header">
       <span class="section-sub">Live Notice Board</span>
@@ -1178,7 +1136,7 @@
             <th>Project Title</th>
             <th>Category Required</th>
             <th>Shooting Location</th>
-            <th>Submission Deadline</th>
+            <th>Deadline</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -1186,22 +1144,22 @@
           <tr>
             <td><strong>Lakme Fashion Week Winter/Festive</strong></td>
             <td>Female (Min Height 5'9''), Male (Min Height 6'0'')</td>
-            <td>Mumbai, Maharashtra</td>
-            <td>Oct 30, 2026</td>
+            <td>Mumbai Studios</td>
+            <td>Nov 15, 2026</td>
             <td><span class="tag-open">Auditions Active</span></td>
           </tr>
           <tr>
             <td><strong>National Beverage TV Commercial</strong></td>
             <td>Ages 18 - 25, Expressive Commercial Faces</td>
             <td>Mumbai / Goa Sets</td>
-            <td>Nov 05, 2026</td>
+            <td>Nov 22, 2026</td>
             <td><span class="tag-open">Casting Open</span></td>
           </tr>
           <tr>
             <td><strong>International Magazine Cover Editorial</strong></td>
-            <td>High-Fashion High-Cheekbone Models</td>
+            <td>High-Fashion Models with Sharp Features</td>
             <td>New Delhi Studios</td>
-            <td>Nov 12, 2026</td>
+            <td>Nov 30, 2026</td>
             <td><span class="tag-open">Shortlisting</span></td>
           </tr>
         </tbody>
@@ -1209,62 +1167,21 @@
     </div>
   </section>
 
-  <!-- SECTION 12: TESTIMONIALS (WHAT CLIENTS & ARTISTES SAY) -->
-  <section class="section-wrap" style="background: var(--bg-darker); border-top: 1px solid var(--border);">
-    <div class="section-header">
-      <span class="section-sub">Client Accolades</span>
-      <h2 class="section-title">Testimonials & Reviews</h2>
-    </div>
-
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-        <p>"XYZ RAMMS provided top-tier professional faces for our autumn campaign on extremely short notice. Truly corporate and seamless coordination."</p>
-        <div class="client-info">
-          <h5>Vikramaditya Roy</h5>
-          <span>Creative Director, Studio Nine Films</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-        <p>"I registered through their scout link last year. Within four months, I was booked for two major runway shows and an e-commerce campaign."</p>
-        <div class="client-info">
-          <h5>Shreya Singhal</h5>
-          <span>Agency Model</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-        <p>"Their portfolio shoot and grooming sessions gave my daughter the exact industry readiness needed for television ad casting. Highly recommended."</p>
-        <div class="client-info">
-          <h5>Sunita Khanna</h5>
-          <span>Talent Guardian</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 13: REGISTRATION & DIRECT BOOKING (READY FOR GOOGLE FORMS) -->
+  <!-- SECTION 12: REGISTRATION & DIRECT BOOKING -->
   <section class="section-wrap" id="hub">
     <div class="cta-hub-grid">
-      <!-- Register Box -->
       <div class="cta-box" id="register">
         <span class="section-sub">Join The Agency</span>
         <h3>Register as Talent</h3>
-        <p>No upfront registration scams. Submit your natural digitals, height stats, and contact details directly to our authorized scouting team.</p>
-        <!-- Paste your Google Form link here -->
+        <p>No upfront registration fees. Submit your natural digitals, height measurements, and contact details directly to our scout team.</p>
         <a href="https://forms.google.com" target="_blank" class="btn-solid">Open Talent Application Form</a>
       </div>
 
-      <!-- Book Talent Box -->
       <div class="cta-box" id="book">
         <span class="section-sub">For Brands & Directors</span>
         <h3>Casting & Book Talent</h3>
-        <p>Inquire regarding model availability, booking rates, and lookbook packages for films, commercials, or international runway tours.</p>
-        <!-- Paste your Google Form link here -->
-        <a href="https://forms.google.com" target="_blank" class="btn-gold">Request Booking / Casting Quote</a>
+        <p>Inquire regarding model availability, booking commercials, and rates for brand campaigns or international tours.</p>
+        <a href="https://forms.google.com" target="_blank" class="btn-gold">Request Booking Quote</a>
       </div>
     </div>
   </section>
@@ -1310,19 +1227,20 @@
       <h3 style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;">Corporate Terms & Privacy Governance</h3>
       <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.8;">
         <strong>XYZ RAMMS MODELING MANAGEMENT</strong> strictly adheres to commercial talent representation laws.<br><br>
-        1. <strong>Representation Rights:</strong> All model imagery and comp-cards hosted on this portal remain the exclusive property of XYZ RAMMS and its respective photographers.<br>
-        2. <strong>Scouting Safety:</strong> We do not conduct auditions via unofficial telegram groups or ask for unverified payments. Official scouting happens strictly via verified Google forms and authorized email addresses.<br>
-        3. <strong>Client Inquiries:</strong> Direct booking quotations are confirmed solely after signed assignment contracts.
+        1. <strong>Executive Leadership:</strong> Founded and directed by <strong>Manoj Bhatt</strong>, the agency maintains direct zero-tolerance standards against unofficial casting brokers.<br>
+        2. <strong>Talent Safety:</strong> Audition registrations and portfolios are protected under confidentiality agreements.<br>
+        3. <strong>Commercial License:</strong> Visual comp-cards cannot be used for unauthorized third-party commercial marketing.
       </p>
     </div>
   </div>
 
-  <!-- SECTION 14: FULL CORPORATE FOOTER -->
+  <!-- SECTION 13: CORPORATE FOOTER -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <div class="logo" style="margin-bottom: 1.2rem;">XYZ RAMMS <span>MODELING</span></div>
-        <p>The executive casting and talent standard. Curating, grooming, and managing visionary models and actors for campaigns across India and worldwide markets.</p>
+        <p>The premier corporate standard for talent scouting, casting, and modeling representation across India and global markets.</p>
+        <p style="margin-top: 1rem; color: var(--accent); font-size: 0.8rem;">Founder & Managing Director: Manoj Bhatt</p>
       </div>
 
       <div class="footer-col">
@@ -1361,9 +1279,9 @@
     </div>
   </footer>
 
-  <!-- ADVANCED JAVASCRIPT -->
+  <!-- SCRIPT LOGIC -->
   <script>
-    // 1. REAL-TIME CLOCK & CURRENT DATE (हर सेकंड लाइव चलेगा)
+    // 1. REAL-TIME CLOCK & CURRENT DATE
     function runLiveClock() {
       const now = new Date();
       const hrs = String(now.getHours()).padStart(2, '0');
@@ -1377,10 +1295,10 @@
     setInterval(runLiveClock, 1000);
     runLiveClock();
 
-    // 2. HAND / ARROW SLIDER FOR MODEL TRACKS (हाथ से स्विच करने वाला)
+    // 2. HAND / ARROW SLIDER FOR MODEL TRACKS
     function slideModels(trackId, direction) {
       const track = document.getElementById(trackId);
-      const scrollStep = 340; // Card width + gap
+      const scrollStep = 340; 
       track.scrollBy({
         left: direction * scrollStep,
         behavior: 'smooth'
