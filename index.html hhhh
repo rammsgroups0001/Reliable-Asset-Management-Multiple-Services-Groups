@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ RAMMS MODELING MANAGEMENT | Elite Talent & Casting Agency</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #121216;
+      --accent: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.35);
+      --text: #f5f5f7;
+      --text-muted: #8a8a93;
+      --border: #22222b;
+      --ticker-bg: #050507;
+      --transition: all 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 1. TOP LIVE TICKER & REAL-TIME SYSTEM */
+    .top-meta-bar {
+      background: var(--ticker-bg);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.4rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1002;
+    }
+
+    .live-status {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: #00ff66;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px #00ff66;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    .ticker-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 50%;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerLoop 24s linear infinite;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @keyframes tickerLoop {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    /* 2. SERVICES QUICK-BAR (TOP HEADER SERVICE RIBBON) */
+    .services-ribbon {
+      background: #0d0d12;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      position: sticky;
+      top: 29px;
+      z-index: 1001;
+    }
+
+    .service-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .service-tag span {
+      color: var(--accent);
+    }
+
+    /* 3. MAIN NAVIGATION */
+    header {
+      position: sticky;
+      top: 58px;
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn-gold {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1.2rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    /* 4. HERO SECTION */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.95)), 
+                  url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    /* 5. MANUAL MODEL CAROUSEL / SLIDER (हाथ से स्विच करने वाला) */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 400;
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .control-btn {
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .control-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Carousel Container */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.8rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Hide scrollbar Firefox */
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none; /* Hide scrollbar Chrome/Safari */
+    }
+
+    .model-slide {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .model-slide:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
+
+    .model-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%);
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .model-slide:hover .model-img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .model-details {
+      padding: 1.2rem;
+      background: linear-gradient(0deg, #09090b 20%, transparent 100%);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    .model-name {
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .model-meta {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 6. PROFILE MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      max-width: 850px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stats-table {
+      width: 100%;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      border-collapse: collapse;
+    }
+
+    .stats-table td {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-table td:first-child {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 7. TALENT REGISTRATION & BOOKING */
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .action-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .action-box:hover {
+      border-color: var(--accent);
+    }
+
+    .action-box h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .action-box p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    /* 8. FOOTER */
+    footer {
+      background: #050507;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .ticker-wrapper { display: none; }
+      .action-grid, .modal-content, .footer-container { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.6rem; }
+      .model-slide { flex: 0 0 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP LIVE STATUS, CLOCK & NEWS TICKER -->
+  <div class="top-meta-bar">
+    <div class="live-status">
+      <span><i class="live-dot"></i> LIVE NETWORK</span>
+      <span>HQ: MUMBAI, IN</span>
+      <span id="liveTime">--:--:-- IST</span>
+      <span id="liveDate">--/--/----</span>
+    </div>
+
+    <!-- Running Live Updates Ribbon -->
+    <div class="ticker-wrapper">
+      <div class="ticker-text">
+        [NOW CASTING] Lakme Fashion Week Roster &bull; [UPDATE] Paris Fashion Week Digitals Open &bull; [CONFIRMED] XYZ RAMMS Signs 4 New International Faces &bull; [ACTIVE CASTING] High-Fashion TV Commercial Shoots in Mumbai &bull; 
+      </div>
+    </div>
+
+    <div style="color: var(--accent); font-weight: 600;">
+      EST. 2026
+    </div>
+  </div>
+
+  <!-- TOP SERVICES BAR (HOME PAGE KE TOP PAR SERVICES) -->
+  <div class="services-ribbon">
+    <div class="service-tag"><span>✦</span> Runway Management</div>
+    <div class="service-tag"><span>✦</span> Editorial & High Fashion</div>
+    <div class="service-tag"><span>✦</span> TV Commercials & OTT</div>
+    <div class="service-tag"><span>✦</span> International Model Placement</div>
+    <div class="service-tag"><span>✦</span> Brand Endorsements</div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">XYZ RAMMS <span>MODELING</span></a>
+      <ul class="nav-links">
+        <li><a href="#roster">Talent Board</a></li>
+        <li><a href="#about">About Agency</a></li>
+        <li><a href="#casting">Casting Hub</a></li>
+        <li><a href="#register">Register Talent</a></li>
+        <li><a href="#book" class="btn-gold">Book Talent</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">A World-Class High-Fashion Bureau</span>
+      <h1 class="hero-title">Representing The Definitive Faces of Modern Luxury</h1>
+      <p class="hero-desc">XYZ RAMMS Modeling Management operates at the vanguard of editorial prestige, commercial vision, and runway excellence.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#roster" class="btn-gold">Explore Roster</a>
+        <a href="#register" class="btn-gold" style="background: var(--accent); color: #000;">Talent Submission</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANUAL SWITCH / SWIPE TALENT ROSTER -->
+  <section id="roster">
+    <div class="section-header">
+      <div>
+        <span style="color: var(--accent); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Official Model Board</span>
+        <h2 class="section-title">The Master Portfolio</h2>
+      </div>
+      <!-- Manual Hand Switch Controls -->
+      <div class="slider-controls">
+        <button class="control-btn" onclick="slideRoster(-1)" title="Previous Models">&#8592;</button>
+        <button class="control-btn" onclick="slideRoster(1)" title="Next Models">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Hand Swipe / Scroll Track -->
+    <div class="carousel-container">
+      <div class="carousel-track" id="modelTrack">
+        
+        <!-- Female Model 1 -->
+        <div class="model-slide" onclick="openProfile('Aanya Roy', 'Female Model', '5\'10\'\'', '32-24-35', 'Brown', 'Black', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop', 'Vogue India, Lakme Runway')">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Aanya Roy">
+          <div class="model-details">
+            <div class="model-name">Aanya Roy</div>
+            <div class="model-meta">Female &bull; Height 5'10''</div>
+          </div>
+        </div>
+
+        <!-- Male Model 1 -->
+        <div class="model-slide" onclick="openProfile('Karan Mehra', 'Male Model', '6\'2\'\'', '40-31-38', 'Hazel', 'Dark Brown', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop', 'GQ Editorial, Armani Exchange Campaign')">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Karan Mehra">
+          <div class="model-details">
+            <div class="model-name">Karan Mehra</div>
+            <div class="model-meta">Male &bull; Height 6'2''</div>
+          </div>
+        </div>
+
+        <!-- Female Model 2 -->
+        <div class="model-slide" onclick="openProfile('Rhea Sen', 'Female Model', '5\'9\'\'', '33-25-36', 'Dark Brown', 'Black', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop', 'Harper\'s Bazaar, Milan Fashion Week')">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Rhea Sen">
+          <div class="model-details">
+            <div class="model-name">Rhea Sen</div>
+            <div class="model-meta">Female &bull; Height 5'9''</div>
+          </div>
+        </div>
+
+        <!-- Male Model 2 -->
+        <div class="model-slide" onclick="openProfile('Aditya Kapoor', 'Male Model', '6\'1\'\'', '39-30-37', 'Black', 'Black', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop', 'FDCI Men\'s Week, Luxury Fragrance Ad')">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Aditya Kapoor">
+          <div class="model-details">
+            <div class="model-name">Aditya Kapoor</div>
+            <div class="model-meta">Male &bull; Height 6'1''</div>
+          </div>
+        </div>
+
+        <!-- Female Model 3 -->
+        <div class="model-slide" onclick="openProfile('Zoya Mirza', 'Female Model', '5\'11\'\'', '34-24-35', 'Amber', 'Dark Brown', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop', 'Elle Global, Paris Couture Tour')">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Zoya Mirza">
+          <div class="model-details">
+            <div class="model-name">Zoya Mirza</div>
+            <div class="model-meta">Female &bull; Height 5'11''</div>
+          </div>
+        </div>
+
+        <!-- Male Model 3 -->
+        <div class="model-slide" onclick="openProfile('Vikram Sethi', 'Male Model', '6\'3\'\'', '41-32-39', 'Black', 'Black', 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop', 'Louis Vuitton India Exclusive, High Street')">
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop" class="model-img" alt="Vikram Sethi">
+          <div class="model-details">
+            <div class="model-name">Vikram Sethi</div>
+            <div class="model-meta">Male &bull; Height 6'3''</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIONS & GOOGLE FORMS READY BOXES -->
+  <section id="casting" style="padding-top: 0;">
+    <div class="action-grid">
+      <!-- Register Talent -->
+      <div class="action-box" id="register">
+        <span style="color: var(--accent); font-size: 0.75rem; letter-spacing: 2px;">JOIN OUR TALENT ROSTER</span>
+        <h3>Register as Talent</h3>
+        <p>Are you ready for national & international campaigns? We scout fresh and experienced male & female faces for high fashion, print, and runway.</p>
+        <a href="https://forms.google.com" target="_blank" class="btn-gold" style="background: var(--accent); color: #000;">Submit Scout Form</a>
+      </div>
+
+      <!-- Book Models -->
+      <div class="action-box" id="book">
+        <span style="color: var(--accent); font-size: 0.75rem; letter-spacing: 2px;">DIRECT CLIENT INQUIRIES</span>
+        <h3>Casting & Book Talent</h3>
+        <p>Book our models for corporate shoots, commercial movies, designer lookbooks, or fashion weeks. Direct board representation.</p>
+        <a href="https://forms.google.com" target="_blank" class="btn-gold">Hire / Cast Models</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT AGENCY SECTION -->
+  <section id="about" style="border-top: 1px solid var(--border);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <span style="color: var(--accent); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;">The Enterprise Standard</span>
+      <h2 style="font-size: 2.5rem; margin: 0.8rem 0 1.5rem;">XYZ RAMMS MODELING MANAGEMENT</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+        XYZ RAMMS is a corporate talent and modeling powerhouse bridging high-end aesthetics with world-class production management. Headquartered in Mumbai with direct international outreach, our board houses distinguished faces seen across billboards, global fashion weeks, OTT platforms, and luxury magazines.
+      </p>
+    </div>
+  </section>
+
+  <!-- INDIVIDUAL PROFILE POPUP (MODAL) -->
+  <div class="modal" id="profileModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProfile()">&times;</button>
+      <img id="modalImg" src="" class="modal-img" alt="Profile">
+      <div class="modal-body">
+        <span style="color: var(--accent); font-size: 0.75rem; letter-spacing: 2px;" id="modalCategory">BOARD</span>
+        <h3 style="font-size: 2.2rem; margin: 0.4rem 0;" id="modalName">Name</h3>
+        <p id="modalBio" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 1rem;">Campaign Highlights</p>
+        
+        <table class="stats-table">
+          <tr>
+            <td>Height</td>
+            <td id="modalHeight">-</td>
+          </tr>
+          <tr>
+            <td>Chest / Measurements</td>
+            <td id="modalStats">-</td>
+          </tr>
+          <tr>
+            <td>Eyes</td>
+            <td id="modalEyes">-</td>
+          </tr>
+          <tr>
+            <td>Hair</td>
+            <td id="modalHair">-</td>
+          </tr>
+        </table>
+        
+        <a href="#book" class="btn-gold" onclick="closeProfile()" style="text-align: center; margin-top: 0.5rem;">Request Booking Details</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- POLICY MODAL -->
+  <div class="modal" id="policyModal">
+    <div class="modal-content" style="grid-template-columns: 1fr; padding: 2.5rem; max-height: 80vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closePolicy()">&times;</button>
+      <h3 style="font-size: 1.8rem; color: var(--accent); margin-bottom: 1rem;">Terms, Privacy & Booking Protocol</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.8;">
+        <strong>XYZ RAMMS MODELING MANAGEMENT</strong> operates under professional model licensing and copyright laws.<br><br>
+        1. <strong>Casting Integrity:</strong> All images, composite cards, and booking requests are handled under strict NDA standards.<br>
+        2. <strong>Talent Safety:</strong> Our scout links and audition registrations strictly avoid unauthorized intermediaries.<br>
+        3. <strong>Commercial Usage:</strong> Any unlicensed extraction of model photos from this platform is subject to legal copyright action.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 1rem;">XYZ RAMMS <span>MODELING</span></div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px;">
+          Corporate talent representation, fashion brand consulting, and model management agency.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Talent Division</h4>
+        <ul class="footer-links">
+          <li><a href="#roster">Male Talent Board</a></li>
+          <li><a href="#roster">Female Talent Board</a></li>
+          <li><a href="#register">Scout & Registration</a></li>
+          <li><a href="#book">Corporate Booking Hub</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal & Communication</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="openPolicy()">Terms & Conditions</a></li>
+          <li><a href="javascript:void(0)" onclick="openPolicy()">Privacy Policy</a></li>
+          <li><a href="mailto:contact@rammsgroups.site">management@xyzramms.com</a></li>
+          <li><a href="#">Mumbai &bull; New Delhi &bull; Worldwide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 2rem; color: var(--text-muted); font-size: 0.8rem;">
+      &copy; 2026 XYZ RAMMS MODELING MANAGEMENT. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- ADVANCED JAVASCRIPT LOGIC -->
+  <script>
+    // 1. LIVE TIME & DATE UPDATE (असली टाइम और तारीख हर सेकंड अपडेट होगी)
+    function updateLiveClock() {
+      const now = new Date();
+      
+      // Real-time Clock
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('liveTime').innerText = `${hours}:${minutes}:${seconds} IST`;
+
+      // Real-time Date
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      document.getElementById('liveDate').innerText = now.toLocaleDateString('en-GB', options).toUpperCase();
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    // 2. HAND/MANUAL SLIDER CONTROLS (हाथ से स्विच करने वाला)
+    function slideRoster(direction) {
+      const track = document.getElementById('modelTrack');
+      const cardWidth = 320; // 300px + gap
+      track.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    // 3. INDIVIDUAL PROFILE MODAL
+    function openProfile(name, category, height, stats, eyes, hair, img, bio) {
+      document.getElementById('modalName').innerText = name;
+      document.getElementById('modalCategory').innerText = category.toUpperCase();
+      document.getElementById('modalHeight').innerText = height;
+      document.getElementById('modalStats').innerText = stats;
+      document.getElementById('modalEyes').innerText = eyes;
+      document.getElementById('modalHair').innerText = hair;
+      document.getElementById('modalImg').src = img;
+      document.getElementById('modalBio').innerText = bio;
+      
+      document.getElementById('profileModal').style.display = 'flex';
+    }
+
+    function closeProfile() {
+      document.getElementById('profileModal').style.display = 'none';
+    }
+
+    // 4. POLICY MODAL
+    function openPolicy() {
+      document.getElementById('policyModal').style.display = 'flex';
+    }
+
+    function closePolicy() {
+      document.getElementById('policyModal').style.display = 'none';
+    }
+
+    // Close on outside click
+    window.onclick = function(event) {
+      const profileModal = document.getElementById('profileModal');
+      const policyModal = document.getElementById('policyModal');
+      if (event.target === profileModal) profileModal.style.display = 'none';
+      if (event.target === policyModal) policyModal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
